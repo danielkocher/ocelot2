@@ -1,0 +1,4 @@
+#ifndef OCELOT2_SCANNER_H
+#define OCELOT2_SCANNER_H
+
+#endif // OCELOT2_SCANNER_H
