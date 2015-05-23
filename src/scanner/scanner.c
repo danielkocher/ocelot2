@@ -1,6 +1,8 @@
 #include "scanner.h"
+#include "../logger/logger.h"
 
 void scanner_init() {
+	logger_print();
 	scanner_token_init();
 
 	current_symbol = T_EOF;
@@ -12,5 +14,5 @@ void scanner_token_init() {
 }
 
 void scanner_get_symbol() {
-	
+
 }
