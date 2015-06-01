@@ -82,16 +82,35 @@ int T_IFNDEF;		// ifndef
 int T_ENDIF;		// endif
 
 /**
+ *	Types
+ */
+struct key_info {
+	int token;
+	char *string;
+	int length;
+};
+
+struct error_info {
+	int line;
+	int column;
+};
+
+/**
  *	Constants
  */
+int SIZE_KEYTABLE;
+int MAX_LENGTH_TOKEN;
 
 /**
  *	Variables
  */
+struct key_info **keytable;
+
 int current_symbol;
 
 void scanner_init();
 void scanner_token_init();
+void scanner_keytable_init();
 void scanner_get_symbol();
 
 #endif // OCELOT2_SCANNER_H
