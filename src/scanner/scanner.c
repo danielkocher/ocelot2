@@ -3,7 +3,9 @@
 
 void scanner_init() {
 	logger_print();
+	
 	scanner_token_init();
+	scanner_keytable_init();
 
 	current_symbol = T_EOF;
 	scanner_get_symbol();
@@ -76,6 +78,13 @@ void scanner_token_init() {
 	T_IFDEF = 113;
 	T_IFNDEF = 114;
 	T_ENDIF = 115;
+
+	// 45 tokens
+}
+
+void scanner_keytable_init() {
+	SIZE_KEYTABLE = 256;
+
 }
 
 void scanner_get_symbol() {
