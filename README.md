@@ -4,7 +4,7 @@ This is just a side project I'm doing for fun.
 
 # Features
 * LL(1) (although in some cases a lookahead will be used to keep the code more readable/reusable)
-* Own emulator (to execute the binary, RISC without any additional commands)
+* Emulator (to execute the binary, RISC without any additional commands)
 * Separate compilation (Linker)
 * Arrays
 * Records
