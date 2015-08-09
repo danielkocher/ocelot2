@@ -17,5 +17,5 @@ Part currently working on: scanner
 * Procedures/Functions
 * Bit operations
 * File I/O
-* Type Checking
+* Type checking
 * Some optimization techniques (e.g. constant folding, lazy evaluation, ...)
