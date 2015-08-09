@@ -3,5 +3,5 @@
 void logger_print() {
 #ifdef NDEBUG
 	printf("LOGGER: \n");
-#endif
+#endif // NDEBUG
 }
