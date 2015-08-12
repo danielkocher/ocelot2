@@ -2,13 +2,15 @@
 #include "../logger/logger.h"
 
 void scanner_init() {
-	logger_print();
+	logger_print("scanner", "init start");
 	
 	scanner_token_init();
 	scanner_keytable_init();
 
 	current_symbol = T_EOF;
 	scanner_get_symbol();
+
+	logger_print("scanner", "init end");
 }
 
 void scanner_token_init() {
