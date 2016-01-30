@@ -5,7 +5,7 @@ This is just a side project I'm doing for fun, so progress will be unsteady as I
 ## Status
 Part currently working on: scanner
 
-## Features
+## Aiming for the following features
 * LL(1) (although in some cases a lookahead will be used to keep the code more readable/reusable)
 * Emulator (to execute the binary, RISC without any additional commands)
 * Separate compilation (Linker)
