@@ -1,14 +1,16 @@
-#include "scanner/scanner.h"
+#include "logger/logger.h"
 
-void main(int argc, char** argv) {
-	if(argc <= 2) {
-        printf("USAGE: ./ozelot2 input-file output-file\n");
-        return -1;
-    }
+#include <stdio.h>
 
-	scanner_init();
-	
-	while(current_symbol != T_EOF) {
-		scanner_get_symbol();
-	}
+int main (int argc, char** argv) {
+  if(argc <= 2) {
+    printf("USAGE: ./ocelot2 input-file output-file\n");
+    return -1;
+  }
+
+  struct logger_t logger;
+
+  logger_init(&logger, 1);
+
+  return 0;
 } 
