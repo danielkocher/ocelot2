@@ -1,4 +1,4 @@
-#include "logger/logger.h"
+#include "eagle/eagle.h"
 
 #include <stdio.h>
 
@@ -8,9 +8,9 @@ int main (int argc, char** argv) {
     return -1;
   }
 
-  struct logger_t logger;
+  struct eagle_t eagle;
 
-  logger_init(&logger, 1);
+  eagle_init(&eagle, 1);
 
   return 0;
 } 

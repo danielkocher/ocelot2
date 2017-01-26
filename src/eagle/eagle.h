@@ -1,12 +1,16 @@
-#ifndef OCELOT2_LOGGER_H
-#define OCELOT2_LOGGER_H
+// aka logger
 
-struct logger_t {
+#ifndef OCELOT2_EAGLE_H
+#define OCELOT2_EAGLE_H
+
+struct eagle_t {
   // flag to indicate whether logging is enabled or not
   int enable;
 };
 
-void logger_init(struct logger_t* logger, int enable);
-void logger_print(struct logger_t* logger, char* message);
+void eagle_init(struct eagle_t* eagle, int enable);
+void eagle_disable(struct eagle_t* eagle);
+void eagle_enable(struct eagle_t* eagle);
+void eagle_print(struct eagle_t* eagle, char* message);
 
-#endif // OCELOT2_LOGGER_H
+#endif // OCELOT2_EAGLE_H

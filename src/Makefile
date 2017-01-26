@@ -3,9 +3,11 @@ CC = gcc
 CFLAGS = -c -Wall -DNDEBUG
 
 DIR_SCANNER = scanner/
-DIR_LOGGER = logger/
+DIR_LOGGER = eagle/
 
-OBJECTS = ocelot2.o scanner.o logger.o
+FILE_LOGGER = eagle.c
+
+OBJECTS = ocelot2.o eagle.o #scanner.o
 BINARY = ocelot2
 
 all: default
@@ -19,10 +21,10 @@ ocelot2.o:
 	$(CC) $(CFLAGS) ocelot2.c
 
 scanner.o:
-	$(CC) $(CFLAGS) $(DIR_SCANNER)scanner.c
+	$(CC) $(CFLAGS) $(DIR_SCANNER)$(FILE_SCANNER)
 
-logger.o:
-	$(CC) $(CFLAGS) $(DIR_LOGGER)logger.c
+eagle.o:
+	$(CC) $(CFLAGS) $(DIR_LOGGER)$(FILE_LOGGER)
 
 clean:
 	rm -f $(BINARY)

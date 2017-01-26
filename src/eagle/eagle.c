@@ -1,13 +1,21 @@
-#include "logger.h"
+#include "eagle.h"
 
 #include <stdio.h>
 
-void logger_init(struct logger_t* logger, int enable) {
-  logger->enable = enable;
+void eagle_init(struct eagle_t* eagle, int enable) {
+  eagle->enable = enable;
 }
 
-void logger_print(struct logger_t* logger, char* message) {
-  if (logger->enable == 1) {
+void eagle_disable(struct eagle_t* eagle) {
+  eagle->enable = 0;
+}
+
+void eagle_enable(struct eagle_t* eagle) {
+  eagle->enable = 1;
+}
+
+void eagle_print(struct eagle_t* eagle, char* message) {
+  if (eagle->enable == 1) {
   	printf("[LOG] ");
   	printf("%s\n", message);
   }
