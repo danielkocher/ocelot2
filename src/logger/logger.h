@@ -7,6 +7,8 @@ struct logger_t {
 };
 
 void logger_init(struct logger_t* logger, int enable);
+void logger_disable(struct logger_t* logger);
+void logger_enable(struct logger_t* logger);
 void logger_print(struct logger_t* logger, char* message);
 
 #endif // OCELOT2_LOGGER_H
