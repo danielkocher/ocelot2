@@ -1,112 +1,110 @@
 #ifndef OCELOT2_SCANNER_H
 #define OCELOT2_SCANNER_H
 
-/**
- * Tokens
- */
+////////////////////////////////////////////////////////////////////////////////
+// Supported tokens (characters)
+////////////////////////////////////////////////////////////////////////////////
+
 // arithmetics
-int T_PLUS;			// +
-int T_MINUS;		// -
-int T_STAR;			// *
-int T_SLASH;		// /
-int T_MODULO;		// %
-
+int PLUS;         // +
+int MINUS;        // -
+int STAR;         // *
+int SLASH;        // /
+int MODULO;       // %
 // ternary operator parts
-int T_COLON;		// :
-int T_QUESTIONMARK;	// ?
-
+int COLON;        // :
+int QUESTIONMARK; // ?
 // bit operations
-int T_AND;			// &
-int T_PIPE;			// |
-int T_HEAD;			// ^
-int T_TILDE;		// ~
-int T_LEFTSHIFT;	// <<
-int T_RIGHTSHIFT;	// >>
-
+int AND;          // &
+int PIPE;         // |
+int HEAD;         // ^
+int TILDE;        // ~
+int LEFTSHIFT;    // <<
+int RIGHTSHIFT;   // >>
 // parentheses
-int T_LEFTPAR;		// (
-int T_RIGHTPAR;		// )
-int T_LEFTSQUPAR;	// [
-int T_RIGHTSQUPAR;	// ]
-int T_LEFTCURPAR;	// {
-int T_RIGHTCURPAR;	// }
-
+int LEFTPAR;      // (
+int RIGHTPAR;     // )
+int LEFTSQUPAR;   // [
+int RIGHTSQUPAR;  // ]
+int LEFTCURPAR;   // {
+int RIGHTCURPAR;  // }
 // boolean connectors
-int T_EXCLMARK;		// !
-int T_AND2;			// &&
-int T_PIPE2;		// ||
-
+int EXCLMARK;     // !
+int AND2;         // &&
+int PIPE2;        // ||
 // comparison
-int T_EQUALS2;		// ==
-int T_NEQUALS;		// !=
-int T_LESS;			// <
-int T_LESSEQUALS;	// <=
-int T_GREATER;		// >
-int T_GREATEREQUALS;// >=
-
+int EQUALS2;      // ==
+int NEQUALS;      // !=
+int LESS;         // <
+int LESSEQUALS;   // <=
+int GREATER;      // >
+int GREATEREQUALS;// >=
 // uncategorized
-int T_EOF;			// \0
-int T_SEMICOLON;	// ;
-int T_COMMA;		// ,
-int T_DOT;			// .
-int T_EQUALS;		// =
-int T_ARROW;		// ->
-
+int EOF;          // \0
+int SEMICOLON;    // ;
+int COMMA;        // ,
+int DOT;          // .
+int EQUALS;       // =
+int ARROW;        // ->
 // types
-int T_INT;			// int
-int T_CHAR;			// char
-int T_VOID;			// void
-int T_STRUCT;		// struct
-
+int INT;          // int
+int CHAR;         // char
+int VOID;         // void
+int STRUCT;       // struct
 // keywords
-int T_IF;			// if
-int T_ELSE;			// else
-int T_WHILE;		// while
-int T_RETURN;		// return
-int T_BREAK;		// break
-int T_CONTINUE;		// continue
-int T_TYPEDEF;		// typedef
-
+int IF;           // if
+int ELSE;         // else
+int WHILE;        // while
+int RETURN;       // return
+int BREAK;        // break
+int CONTINUE;     // continue
+int TYPEDEF;      // typedef
 // literals, variables
-int T_IDENTIFIER;	// variable and function names
-int T_NUMBER;		// integer literal, e.g. 42
-int T_CHARACTER;	// character literal, e.g. 'C'
-int T_STRING;		// string literal, e.g. "hello"
-
+int IDENTIFIER;   // variable and function names
+int NUMBER;       // integer literal, e.g. 42
+int CHARACTER;    // character literal, e.g. 'C'
+int STRING;       // string literal, e.g. "hello"
 // preprocessor
-int T_ASTERISK;		// #
-int T_INCLUDE;		// include
-int T_DEFINE;		// define
-int T_IFDEF;		// ifdef
-int T_IFNDEF;		// ifndef
-int T_ENDIF;		// endif
+int ASTERISK;     // #
+int INCLUDE;      // include
+int DEFINE;       // define
+int IFDEF;        // ifdef
+int IFNDEF;       // ifndef
+int ENDIF;        // endif
 
-/**
- *	Types
- */
-struct key_info {
-	int token;
-	char *string;
-	int length;
+////////////////////////////////////////////////////////////////////////////////
+// Types
+////////////////////////////////////////////////////////////////////////////////
+
+struct token_t {
+  // token information
+  int code;
+  int length;
+  // positional information (mainly for error messages)
+  int file_id;
+  int line;
+  int column;
+  // corresponding string
+  char* string;
 };
 
-struct error_info {
-	int line;
-	int column;
+struct scanner_t {
+  // constants
+  int SIZE_KEYTABLE;
+  int MAX_LENGTH_TOKEN;
+  // processing
+  char current_character;
 };
 
-/**
- *	Constants
- */
-int SIZE_KEYTABLE;
-int MAX_LENGTH_TOKEN;
+////////////////////////////////////////////////////////////////////////////////
+//	Variables
+////////////////////////////////////////////////////////////////////////////////
 
-/**
- *	Variables
- */
-struct key_info **keytable;
+struct token_t **token_table;
 
-int current_symbol;
+////////////////////////////////////////////////////////////////////////////////
+// Functions
+////////////////////////////////////////////////////////////////////////////////
 
 void scanner_init();
 void scanner_token_init();

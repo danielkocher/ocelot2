@@ -1,7 +1,7 @@
 #include "scanner.h"
 #include "../logger/logger.h"
 
-void scanner_init() {
+/*void scanner_init() {
 	logger_print("scanner", "init start");
 	
 	scanner_token_init();
@@ -91,4 +91,4 @@ void scanner_keytable_init() {
 
 void scanner_get_symbol() {
 
-}
+}*/
